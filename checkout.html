@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-       𝓗𝓞𝓖𝓦𝓐𝓡𝓣𝓢 𝓒𝓘𝓝𝓔𝓜𝓐𝓢 
+      <h1>𝓗𝓞𝓖𝓦𝓐𝓡𝓣𝓢 𝓒𝓘𝓝𝓔𝓜𝓐𝓢</h1> 
     </header>
 
     <section id="checkout">
@@ -32,12 +32,12 @@
     
         <form id="payment-form">
           <h3>Your Details</h3>
-          <input type="text" id="name" placeholder="Full Name" required />
-          <input type="email" id="email" placeholder="Email Address" required />
-          <input type="text" id="phone" placeholder="Phone Number" required />
+          <input type="text" id="name" placeholder="Full Name" required>
+          <input type="email" id="email" placeholder="Email Address" required>
+          <input type="text" id="phone" placeholder="Phone Number" required>
     
           <h3>Seat Preferences</h3>
-          <input type="text" id="seat-preference" placeholder="e.g. A1, A2, B5" required />
+          <input type="text" id="seat-preference" placeholder="e.g. A1, A2, B5" required>
     
           <h3>Payment Info</h3>
             <!-- Credit/Debit Card Option -->
@@ -49,21 +49,21 @@
                 </select>
             </div>
             <!-- Card Details -->
-            <form id="paymentForm">
-                <input type="text" id="cardNameInput" placeholder="Name on Card" />
+            
+                <input type="text" id="cardNameInput" placeholder="Name on Card">
                 <small id="cardNameError" class="error"></small>
             
-                <input type="text" id="cardNumberInput" placeholder="Card Number" />
+                <input type="text" id="cardNumberInput" placeholder="Card Number">
                 <small id="cardNumberError" class="error"></small>
             
-                <input type="text" id="expiryInput" placeholder="MM/YY" />
+                <input type="text" id="expiryInput" placeholder="MM/YY">
                 <small id="expiryError" class="error"></small>
             
-                <input type="text" id="cvvInput" placeholder="CVV" />
+                <input type="text" id="cvvInput" placeholder="CVV">
                 <small id="cvvError" class="error"></small>
             
                 <button type="submit">Pay Now</button>
-            </form>
+            
             <div id="formAlert" class="alert"></div>               
         </form>
     
