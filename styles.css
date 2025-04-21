@@ -6,16 +6,18 @@ body {
     background-color: #121212;
     color: #ffffff;
     text-align: center;
+    background-size: auto; 
+    background-image: url(Images/background.jpg);
 }
 
 /* Header */
 header {
     background: #ff4500;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight:bolder;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -48,11 +50,13 @@ header {
 
 .movie-item img {
     width: 100%;
-    height: 320px;
+    height: auto;
+    max-height: 320px;
     object-fit: cover;
     border-bottom: 2px solid #ddd;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease
 
 }
 
@@ -193,7 +197,8 @@ header {
     }
   
     .movie-item img {
-      height: 280px;
+      height: auto;
+      
     }
   
     #cart table {
@@ -232,7 +237,7 @@ header {
     }
   
     .movie-item img {
-      height: 250px;
+      height: auto;
     }
   
     .movie-details h3 {
@@ -290,8 +295,7 @@ header {
     }
   
     .movie-item img {
-      height: 200px;
-      margin-bottom: 10px;
+      height: auto;  
     }
   
     .movie-details {
@@ -312,32 +316,31 @@ header {
     }
   
     #cart {
-      padding: 12px;
-      margin: 15px auto;
-      width: 95%;
-      overflow-x: auto;
+        margin-top: 30px;
+      }
+    
+      #cart table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    
+      #cart th, #cart td {
+        font-size: 0.8rem;
+        padding: 8px 6px;
+      }
+    
+      #cart h2, #cart h3 {
+        font-size: 1.1rem;
+      }
+    
+      #cart > button {
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+      }
     }
   
-    #cart table {
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-  
-    #cart th, #cart td {
-      padding: 6px 8px;
-      font-size: 12px;
-    }
-  
-    #cart h2, #cart h3 {
-      text-align: center;
-    }
-  
-    #cart button {
-      font-size: 12px;
-      padding: 6px 12px;
-    }
-  }
   
   /* Extra Small Devices (Max width 360px) */
   @media (max-width: 360px) {
@@ -347,7 +350,7 @@ header {
     }
   
     .movie-item img {
-      height: 180px;
+      height: auto;
     }
   
     .movie-details h3 {
@@ -362,7 +365,11 @@ header {
       font-size: 12px;
       padding: 5px 10px;
     }
-  
+    
+    #cart table {
+        width: 100%;
+        border-collapse: collapse;
+      }
     #cart h2 {
       font-size: 16px;
     }
@@ -377,62 +384,15 @@ header {
     }
   
     #cart button {
-      font-size: 11px;
-      padding: 5px 10px;
+        margin: 5px;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
     }
   }
     
-/* === Responsive Cart Table === */
-/* @media (max-width: 768px) {
-    #cart table,
-    #cart thead,
-    #cart tbody,
-    #cart th,
-    #cart td,
-    #cart tr {
-        display: block;
-        width: 100%;
-    }
-
-    #cart thead {
-        display: none;
-    }
-
-    #cart tr {
-        margin-bottom: 20px;
-        border-bottom: 2px solid #f0f0f0;
-        padding: 10px 0;
-    }
-
-    #cart td {
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
-    }
-
-    #cart td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 15px;
-        top: 12px;
-        font-weight: bold;
-        color: #333;
-        text-align: left;
-    }
-
-    #cart h3 {
-        text-align: center;
-    }
-
-    #cart button {
-        display: block;
-        width: 100%;
-        margin: 8px 0;
-    }
-} */
-
 /* Checkout Page */
-/* General Styles */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -587,23 +547,39 @@ header {
 }
 /* Confirmation Message */
 #confirmation {
-    background-color: #1e1e1e;
-    padding: 40px;
-    margin-top: 40px;
+    background-color: #000000;
+    border: 2px solid #000000;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-#confirmation h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #4caf50;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(252, 249, 249, 0.904);
 }
 
 #summary-message {
-    font-size: 18px;
-    color: #dddddd;
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #ffffff;
 }
+
+#ok-button {
+    background-color: #ff4500;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#ok-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -611,7 +587,10 @@ header {
         padding: 20px;
     }
 
-    #ticket-summary table,
+    #ticket-summary table{
+        border-collapse: collapse;
+        width: 100%;
+    }
     #ticket-summary thead,
     #ticket-summary tbody,
     #ticket-summary th,
@@ -624,11 +603,10 @@ header {
     #ticket-summary thead {
         display: none;
     }
-
+    #ticket-summary th,
     #ticket-summary td {
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
+        font-size: 14px;
+        padding: 10px;
         border-bottom: 1px solid #333;
     }
 
@@ -640,5 +618,184 @@ header {
         font-weight: bold;
         color: #cccccc;
         text-align: left;
+    }
+    #confirmation {
+        padding: 20px;
+        margin: 20px 10px;
+        max-width: 90%;
+    }
+
+    #summary-message {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    #ok-button {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    header {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+
+    #checkout h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    #ticket-summary {
+        padding: 18px;
+        margin-bottom: 30px;
+    }
+
+    #ticket-summary h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    #ticket-summary th,
+    #ticket-summary td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #checkout-total {
+        font-size: 18px;
+    }
+
+    #payment-form {
+        padding: 20px;
+    }
+
+    #payment-form h3 {
+        font-size: 18px;
+    }
+
+    #payment-form input {
+        font-size: 15px;
+        padding: 10px;
+    }
+    #payment-form input::placeholder {
+        color: #ffffff;
+    }
+    #payment-form button {
+        font-size: 16px;
+        padding: 10px;
+    }
+    #payment-form button:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    #confirmation {
+        padding: 25px;
+    }
+
+    #confirmation h2 {
+        font-size: 20px;
+    }
+
+    #summary-message {
+        font-size: 16px;
+    }
+
+    #card-type-selection label {
+        font-size: 1rem;
+    }
+
+    #card-type-selection select {
+        font-size: 0.95rem;
+    }
+    #confirmation {
+        padding: 20px;
+        margin: 20px 15px;
+        max-width: 95%;
+    }
+
+    #summary-message {
+        font-size: 13.5px;
+        line-height: 1.4;
+    }
+
+    #ok-button {
+        padding: 10px 18px;
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    header {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    #checkout {
+        padding: 16px 10px;
+    }
+
+    #ticket-summary {
+        padding: 14px;
+    }
+
+    #ticket-summary h3 {
+        font-size: 16px;
+    }
+    #ticket-summary th,
+    #ticket-summary td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    #checkout-total {
+        font-size: 16px;
+    }
+
+    #payment-form {
+        padding: 16px;
+    }
+
+    #payment-form input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #payment-form button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #confirmation h2 {
+        font-size: 18px;
+    }
+
+    #summary-message {
+        font-size: 15px;
+    }
+
+    #card-type-selection label {
+        font-size: 0.9rem;
+    }
+
+    #card-type-selection select {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+    #confirmation {
+        padding: 18px;
+        margin: 15px 10px;
+        max-width: 100%;
+    }
+
+    #summary-message {
+        font-size: 13px;
+    }
+
+    #ok-button {
+        padding: 10px 16px;
+        font-size: 13.5px;
+        width: 100%;
     }
 }

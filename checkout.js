@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
     let tableBody = document.getElementById("checkout-tickets");
     let totalSpan = document.getElementById("checkout-total");
     let form = document.getElementById("payment-form");
@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let summaryMessage = document.getElementById("summary-message");
     let cardTypeSelect = document.getElementById("card-type");
 
-    // Load tickets from localStorage
     let tickets = JSON.parse(localStorage.getItem("cart")) || [];
     let grandTotal = 0;
 
@@ -26,14 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     totalSpan.innerText = grandTotal;
 
-    // Card Type Handler
     cardTypeSelect?.addEventListener("change", function () {
         if (this.value === "debit") {
             alert("You selected Debit Card! Please enter your valid card details.");
         }
     });
 
-    // Form Submission + Validation
     form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -55,20 +52,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const cvvError = document.getElementById("cvvError");
         const alertBox = document.getElementById("formAlert");
 
-        // Reset errors
         cardNameError.innerText = "";
         cardNumberError.innerText = "";
         expiryError.innerText = "";
         cvvError.innerText = "";
         alertBox.style.display = "none";
 
-        // Validate personal info
         if (!name || !email || !phone || !seatPref) {
             alert("Please fill in all fields correctly.");
             return;
         }
 
-        // Validate card details
         if (!/^[a-zA-Z\s]+$/.test(cardName)) {
             cardNameError.innerText = "Name can contain only letters and spaces.";
             isValid = false;
@@ -95,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Success - show confirmation
         const reference = "REF" + Math.floor(100000 + Math.random() * 900000);
         const time = new Date().toLocaleString();
 
@@ -111,4 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmation.style.display = "block";
         localStorage.removeItem("cart");
     });
+});
+const okButton = document.getElementById("ok-button");
+
+okButton?.addEventListener("click", function () {
+    window.location.href = "index.html"; 
 });

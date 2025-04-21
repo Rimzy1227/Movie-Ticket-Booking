@@ -1,18 +1,15 @@
-// Element references
 let cartTable = document.getElementById("cart-items");
 let totalPriceElement = document.getElementById("total-price");
 let saveFavButton = document.getElementById("save-favorite-button");
 let applyFavButton = document.getElementById("apply-favorite-button");
 let checkoutButton = document.getElementById("checkout-button");
 
-// Cart data
 let cart = [];
 let storedCart = localStorage.getItem("cart");
 if (storedCart) {
     cart = JSON.parse(storedCart);
 }
 
-// Add movie to cart
 function addToCart(movie, price) {
     const seats = prompt(`How many seats for ${movie}? (1 to 50)`);
     const seatsNum = parseInt(seats);
@@ -30,7 +27,6 @@ function addToCart(movie, price) {
     }
 }
 
-// Update cart table display
 function updateCartDisplay() {
     cartTable.innerHTML = "";
     let total = 0;
@@ -52,13 +48,11 @@ function updateCartDisplay() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Remove from cart
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartDisplay();
 }
 
-// Save favorite
 function saveAsFavorite() {
     if (cart.length) {
         localStorage.setItem("favouriteBooking", JSON.stringify(cart));
@@ -68,7 +62,6 @@ function saveAsFavorite() {
     }
 }
 
-// Apply favorite
 function applyFavorite() {
     const fav = JSON.parse(localStorage.getItem("favouriteBooking"));
     if (fav) {
@@ -79,7 +72,6 @@ function applyFavorite() {
     }
 }
 
-// Proceed to checkout
 function proceedToCheckout() {
     if (cart.length === 0) {
         alert("Your cart is empty!");
@@ -88,10 +80,8 @@ function proceedToCheckout() {
     window.location.href = "checkout.html";
 }
 
-// Event Listeners
 saveFavButton?.addEventListener("click", saveAsFavorite);
 applyFavButton?.addEventListener("click", applyFavorite);
 checkoutButton?.addEventListener("click", proceedToCheckout);
 
-// Initial render
 updateCartDisplay();
