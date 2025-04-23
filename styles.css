@@ -12,15 +12,18 @@ body {
 
 /* Header */
 header {
-    background: #000000;
-    color: rgb(255, 255, 255);
-    padding: 1.5rem;
-    font-size: 1.5rem;
+    background: #ff4500;
+    color: rgb(0, 0, 0);
+    padding: 0.8rem;
     text-transform: uppercase;
     font-weight:bolder;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 3px solid #000000;
 }
-
+header h1 {
+    font-size: 2rem;
+}
 /* Movie Sections */
 .movie-list {
     display: grid;
@@ -228,10 +231,11 @@ header {
   /* Small Devices (Tablets/Small Screens) */
   @media (max-width: 768px) {
     header {
-      font-size: 1.4rem;
-      padding: 1rem;
+      padding: 0.8rem;
     }
-  
+    header h1 {
+        font-size: 1.4rem;
+    }
     .movie-item {
       width: 90%;
       margin: 0 auto;
@@ -283,6 +287,12 @@ header {
   
   /* Mobile Devices */
   @media (max-width: 480px) {
+    header {
+        padding: 0.8rem;
+      }
+      header h1 {
+          font-size: 1.2rem;
+      }
     .movie-list {
       grid-template-columns: 1fr;
       gap: 16px;
@@ -296,7 +306,9 @@ header {
     }
   
     .movie-item img {
-      height: auto;  
+      height: auto; 
+      background: cover; 
+      width: 100%;
     }
   
     .movie-details {
@@ -346,12 +358,15 @@ header {
   /* Extra Small Devices (Max width 360px) */
   @media (max-width: 360px) {
     header {
-      font-size: 1.2rem;
-      padding: 0.8rem;
-    }
-  
+        padding: 0.8rem;
+      }
+      header h1 {
+          font-size: 1rem;
+      }
     .movie-item img {
-      height: auto;
+      height: auto; 
+      width: 100%;
+      background: cover;
     }
   
     .movie-details h3 {
@@ -394,7 +409,7 @@ header {
     
 /* Checkout Page */
 
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -404,7 +419,7 @@ body {
 }
 
 /* Header */
-header {
+/* header { 
     background: #000000;
     color: white;
     padding: 1.5rem;
@@ -412,7 +427,7 @@ header {
     text-transform: uppercase;
     font-weight: bold;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* Checkout Section */
 #checkout {
