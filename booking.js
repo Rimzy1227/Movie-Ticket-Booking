@@ -11,9 +11,9 @@ if (storedCart) {
 }
 
 function addToCart(movie, price) {
-    const seats = prompt(`How many seats for ${movie}? (1 to 50)`);
+    const seats = prompt(`How many seats for ${movie}? (1 to 10)`);
     const seatsNum = parseInt(seats);
-    if (seats && !isNaN(seats) && seats > 0 && seatsNum <= 50) {
+    if (seats && !isNaN(seats) && seats > 0 && seatsNum <= 10) {
         const item = {
             movie: movie,
             price: price,
