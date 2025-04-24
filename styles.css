@@ -481,7 +481,21 @@ header h1 {
     font-size: 22px;
     color: #ffffff;
 }
+#seat-preference {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
 
+/* Dropdown Option Styles */
+#seat-preference option {
+    padding: 10px;
+}
 /* Payment Form */
 #payment-form {
     background-color: #000000;

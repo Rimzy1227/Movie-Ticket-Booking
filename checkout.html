@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-      <h1>𝓗𝓞𝓖𝓦𝓐𝓡𝓣𝓢 𝓒𝓘𝓝𝓔𝓜𝓐𝓢</h1> 
+      <h1>𝙷𝙾𝙶𝚆𝙰𝚁𝚃𝚂 𝙲𝙸𝙽𝙴𝙼𝙰𝚂</h1> 
     </header>
 
     <section id="checkout">
@@ -37,7 +37,12 @@
           <input type="text" id="phone" placeholder="Phone Number" required>
     
           <h3>Seat Preferences</h3>
-          <input type="text" id="seat-preference" placeholder="e.g. A1, A2, B5" required>
+          <select id="seat-preference" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="Standard">Standard (+0)</option>
+            <option value="Premium">Premium (+200)</option>
+            <option value="Balcony">Balcony (+400)</option>
+          </select>
     
           <h3>Payment Info</h3>
             <!-- Credit/Debit Card Option -->
