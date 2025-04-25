@@ -57,7 +57,13 @@ cardTypeSelect?.addEventListener("change", () => {
 });
 
 seatPreference?.addEventListener("change", applySeatPreference);
-
+document.getElementById("expiryInput").addEventListener("input", function (e) {
+    let value = e.target.value.replace(/\D/g, ""); 
+    if (value.length >= 2) {
+        value = value.slice(0, 2) + "/" + value.slice(2, 4);
+    }
+    e.target.value = value;
+});
 form?.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -73,12 +79,14 @@ form?.addEventListener("submit", function (e) {
     const expiry = document.getElementById("expiryInput").value.trim();
     const cvv = document.getElementById("cvvInput").value.trim();
 
+    const phoneError = document.getElementById("phoneError");
     const cardNameError = document.getElementById("cardNameError");
     const cardNumberError = document.getElementById("cardNumberError");
     const expiryError = document.getElementById("expiryError");
     const cvvError = document.getElementById("cvvError");
     const alertBox = document.getElementById("formAlert");
 
+    phoneError.innerText = "";
     cardNameError.innerText = "";
     cardNumberError.innerText = "";
     expiryError.innerText = "";
@@ -87,9 +95,12 @@ form?.addEventListener("submit", function (e) {
 
     if (!name || !email || !phone || !seatPref) {
         alert("Please fill in all fields correctly.");
-        return;
+        isValid = false;
     }
-
+    if (!/^\d{10}$/.test(phone)) {
+        phoneError.innerText = "Phone number must be exactly 10 digits.";
+        isValid = false;
+    }
     if (!/^[a-zA-Z\s]+$/.test(cardName)) {
         cardNameError.innerText = "Name can contain only letters and spaces.";
         isValid = false;
@@ -103,6 +114,16 @@ form?.addEventListener("submit", function (e) {
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry)) {
         expiryError.innerText = "Expiry must be in MM/YY format.";
         isValid = false;
+    } else {
+        const [expMonth, expYear] = expiry.split("/").map(Number);
+        const now = new Date();
+        const currentYear = now.getFullYear() % 100; 
+        const currentMonth = now.getMonth() + 1;
+    
+        if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
+            expiryError.innerText = "Card has already expired.";
+            isValid = false;
+        }
     }
 
     if (!/^\d{3}$/.test(cvv)) {
