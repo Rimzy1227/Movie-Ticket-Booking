@@ -20,7 +20,9 @@
             <thead>
               <tr>
                 <th>Movie</th>
-                <th>Price</th>
+                <th>Show Date</th>
+                <th>Show Time</th>
+                <th>Price per Seat</th>
                 <th>Seats</th>
                 <th>Total</th>
               </tr>
@@ -39,13 +41,13 @@
           <h3>Seat Preferences</h3>
           <select id="seat-preference" required>
             <option value="" disabled selected>Select a category</option>
-            <option value="Standard">Standard (+0)</option>
-            <option value="Premium">Premium (+200)</option>
-            <option value="Balcony">Balcony (+400)</option>
+            <option value="Standard">Standard</option>
+            <option value="Premium">Premium (+Rs.200)</option>
+            <option value="Balcony">Balcony (+Rs.400)</option>
           </select>
     
           <h3>Payment Info</h3>
-            <!-- Credit/Debit Card Option -->
+
             <div id="card-type-selection">
                 <label for="card-type">Select Card Type:</label>
                 <select id="card-type" name="card-type">
@@ -53,7 +55,7 @@
                     <option value="debit">Debit Card</option>
                 </select>
             </div>
-            <!-- Card Details -->
+
             
                 <input type="text" id="cardNameInput" placeholder="Name on Card">
                 <small id="cardNameError" class="error"></small>

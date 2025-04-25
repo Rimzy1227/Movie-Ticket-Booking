@@ -224,6 +224,22 @@
                 <p>🎭 All movies | 🔥 Limited Time Offer</p>
             </div>  
         </div>
+        <div id="dateTimeModal" class="modal">
+            <h3>Select Show Details</h3>
+            <label>Date: <input type="date" id="show-date" required></label><br><br>
+            <label>Time:
+                <select id="show-time">
+                    <option value="10:00">10:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="22:00">22:00</option>
+                </select>
+            </label><br><br>
+            <label>Seats (1-10): <input type="number" id="seat-count" min="1" max="10" required></label><br><br>
+            <button onclick="confirmAddToCart()">Add to Cart</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
     </section>
 
     <!-- Cart Section -->
@@ -233,6 +249,8 @@
             <thead>
                 <tr>
                     <th>Movie</th>
+                    <!-- <th>Date</th>
+                    <th>Time</th> -->
                     <th>Price</th>
                     <th>Seats</th>
                     <th>Total</th>

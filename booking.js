@@ -9,24 +9,58 @@ let storedCart = localStorage.getItem("cart");
 if (storedCart) {
     cart = JSON.parse(storedCart);
 }
+let selectedMovie = null;
+let selectedPrice = 0;
 
 function addToCart(movie, price) {
-    const seats = prompt(`How many seats for ${movie}? (1 to 10)`);
-    const seatsNum = parseInt(seats);
-    if (seats && !isNaN(seats) && seats > 0 && seatsNum <= 10) {
-        const item = {
-            movie: movie,
-            price: price,
-            seats: parseInt(seats),
-            total: price * parseInt(seats)
-        };
-        cart.push(item);
-        updateCartDisplay();
-    } else {
-        alert("Please enter a valid number of seats.");
-    }
+    selectedMovie = movie;
+    selectedPrice = price;
+    document.getElementById("seat-count").value = 1;
+    document.getElementById("show-date").value = ""; 
+    document.getElementById("dateTimeModal").style.display = "block"; 
 }
 
+function closeModal() {
+    document.getElementById("dateTimeModal").style.display = "none"; 
+}
+  
+function confirmAddToCart() {
+    const seats = parseInt(document.getElementById("seat-count").value);
+    const date = document.getElementById("show-date").value;
+    const time = document.getElementById("show-time").value;
+
+    if (!date) {
+        alert("Please select a date.");
+        return;
+    }
+
+    if (!time) {
+        alert("Please select a show time.");
+        return;
+    }
+
+    if (isNaN(seats) || seats < 1 || seats > 10) {
+        alert("Please enter a valid number of seats (1 to 10).");
+        return;
+    }
+
+    const item = {
+        movie: selectedMovie,
+        price: selectedPrice,
+        seats: seats,
+        showDate: date,
+        showTime: time,
+        total: selectedPrice * seats
+    };
+
+    cart.push(item);
+    updateCartDisplay();
+    closeModal();
+}
+window.onload = function() {
+  const today = new Date().toISOString().split('T')[0]; 
+  document.getElementById('show-date').setAttribute('min', today);
+};
 function updateCartDisplay() {
     cartTable.innerHTML = "";
     let total = 0;
@@ -35,6 +69,7 @@ function updateCartDisplay() {
         let row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.movie}</td>
+            
             <td>Rs.${item.price}</td>
             <td>${item.seats}</td>
             <td>Rs.${item.total}</td>

@@ -19,7 +19,6 @@ const seatCharges = {
     balcony: 400
 };
 
-// Update the checkout ticket table and total
 function updateCheckoutTable() {
     checkoutTable.innerHTML = "";
     let grandTotal = 0;
@@ -31,6 +30,8 @@ function updateCheckoutTable() {
         let row = document.createElement("tr");
         row.innerHTML = `
             <td>${ticket.movie}</td>
+            <td>${ticket.showDate || 'N/A'}</td>
+            <td>${ticket.showTime || 'N/A'}</td> 
             <td>Rs.${ticket.price}</td>
             <td>${ticket.seats}</td>
             <td>Rs.${totalPrice}</td>
@@ -40,27 +41,23 @@ function updateCheckoutTable() {
     });
 
     totalSpan.innerText = grandTotal;
-    localStorage.setItem("cart", JSON.stringify(tickets)); // Save updated seatType if changed
+    localStorage.setItem("cart", JSON.stringify(tickets)); 
 }
 
-// Apply selected seat type to all tickets
 function applySeatPreference() {
     const selectedType = seatPreference.value.toLowerCase();
     tickets.forEach(ticket => ticket.seatType = selectedType);
     updateCheckoutTable();
 }
 
-// Handle card type alert
 cardTypeSelect?.addEventListener("change", () => {
     if (cardTypeSelect.value === "debit") {
         alert("You selected Debit Card! Please enter your valid card details.");
     }
 });
 
-// Handle seat preference change
 seatPreference?.addEventListener("change", applySeatPreference);
 
-// Handle form submission and validation
 form?.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -122,10 +119,15 @@ form?.addEventListener("submit", function (e) {
     const reference = "REF" + Math.floor(100000 + Math.random() * 900000);
     const time = new Date().toLocaleString();
 
+    let showDetails = tickets.map(t => `${t.movie} on ${t.showDate || 'N/A'} at ${t.showTime || 'N/A'}`).join("<br>");
+
     summaryMessage.innerHTML = `
         Name: ${name}<br>
         Email: ${email}<br>
-        Seats: ${seatPref}<br>
+        Phone: ${phone}<br>
+        Seat Type: ${seatPref}<br><br>
+        <strong>Booking Details:</strong><br>
+        ${showDetails}<br><br>
         Booking Time: ${time}<br>
         Booking Reference: <strong>${reference}</strong>
     `;
@@ -135,10 +137,8 @@ form?.addEventListener("submit", function (e) {
     localStorage.removeItem("cart");
 });
 
-// Redirect to homepage
 okButton?.addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-// Initial setup
 updateCheckoutTable();
