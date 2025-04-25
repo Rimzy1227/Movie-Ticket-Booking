@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -10,7 +9,6 @@ body {
     background-image: url(Images/background.webp);
 }
 
-/* Header */
 header {
     background: #ff4500;
     color: rgb(0, 0, 0);
