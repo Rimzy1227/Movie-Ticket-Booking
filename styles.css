@@ -425,7 +425,33 @@ header h1 {
       font-size: 13px;
       padding: 6px 10px;
     }
-  
+    .modal-content {
+        padding: 10px;
+    }
+
+    .modal h3 {
+        font-size: 18px;
+    }
+
+    .modal label {
+        font-size: 13px;
+    }
+
+    .modal input, .modal select {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .modal button {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%; /* Stack buttons */
+        margin-bottom: 10px;
+    }
+
+    .modal button:first-of-type {
+        margin-right: 0;
+    }
     #cart {
         margin-top: 30px;
       }
@@ -479,7 +505,29 @@ header h1 {
       font-size: 12px;
       padding: 5px 10px;
     }
-    
+    .modal h3 {
+        font-size: 16px;
+    }
+
+    .modal label {
+        font-size: 12px;
+    }
+
+    .modal input, .modal select {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .modal button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .modal .close-btn {
+        font-size: 16px;
+        top: 5px;
+        right: 5px;
+    }
     #cart table {
         width: 100%;
         border-collapse: collapse;
