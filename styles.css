@@ -27,21 +27,21 @@ header h1 {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    gap: 1rem; /* adds space between logo and text */
+    gap: 1rem; 
 }
 
 .logo-wrapper h1 {
     margin: 0;
-    font-size: 2rem; /* scales better across devices */
+    font-size: 2rem; 
     font-weight: bold;
-    color: #333; /* darker color for better readability */
+    color: #333; 
 }
 
 .logo {
-    width: 120px; /* smaller for better proportion */
+    width: 120px; 
     height: 120px;
     background-image: url('Images/Logo.png');
-    background-size: contain; /* better than cover for logos */
+    background-size: contain; 
     background-repeat: no-repeat;
     background-position: center;
 }
